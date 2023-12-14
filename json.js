@@ -309,7 +309,7 @@ const clone = function (pSrc, pOptions) {
 	}
 };
 
-const doNotCloneObjects = [window, document, navigator, location, localStorage, sessionStorage/*, speechSynthesis*//*, clientInformation*/, history, indexedDB, performance, screen/*, styleMedia*//*, trustedTypes*//*, visualViewport*/, locationbar, menubar, personalbar, scrollbars, statusbar, toolbar];
+const doNotCloneObjects = [self/*worker*/, window, document, navigator, location, localStorage, sessionStorage/*, speechSynthesis*//*, clientInformation*/, history, indexedDB, performance, screen/*, styleMedia*//*, trustedTypes*//*, visualViewport*/, locationbar, menubar, personalbar, scrollbars, statusbar, toolbar];
 
 /*
 merge A into B
