@@ -29,7 +29,10 @@ function generateV4 () {
 	/*
 	from https://gist.github.com/jcxplorer/823878
 	*/
-	if (window.location.protocol!="https:") {
+	if (window.crypto && window.crypto.randomUUID) {
+		return window.crypto.randomUUID();
+	}
+	else {
 		let uuid = "", i, random;
 		for (i = 0; i < 32; i++) {
 			random = Math.random() * 16 | 0;
@@ -38,7 +41,6 @@ function generateV4 () {
 		}
 		return uuid;
 	}
-	else return window.crypto.randomUUID();
 };
 
 function getSetInstId (obj) {
