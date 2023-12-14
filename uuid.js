@@ -29,8 +29,8 @@ function generateV4 () {
 	/*
 	from https://gist.github.com/jcxplorer/823878
 	*/
-	if (window?.crypto?.randomUUID) {
-		return window.crypto.randomUUID();
+	if (self?.crypto?.randomUUID) {
+		return self.crypto.randomUUID();
 	}
 	else {
 		let uuid = "", i, random;
