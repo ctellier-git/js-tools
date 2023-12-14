@@ -26,17 +26,19 @@ SOFTWARE.
 //const _moduleDir_ = import.meta.url.substring(0,import.meta.url.lastIndexOf("/"));
 
 function generateV4 () {
-//	/*
-//	from https://gist.github.com/jcxplorer/823878
-//	*/
-//	let uuid = "", i, random;
-//	for (i = 0; i < 32; i++) {
-//		random = Math.random() * 16 | 0;
-//		if (i == 8 || i == 12 || i == 16 || i == 20) uuid += "-";
-//		uuid += (i == 12 ? 4 : (i == 16 ? (random & 3 | 8) : random)).toString(16);
-//	}
-//	return uuid;
-	return window.crypto.randomUUID();
+	/*
+	from https://gist.github.com/jcxplorer/823878
+	*/
+	if (window.location.protocol=="https:") {
+		let uuid = "", i, random;
+		for (i = 0; i < 32; i++) {
+			random = Math.random() * 16 | 0;
+			if (i == 8 || i == 12 || i == 16 || i == 20) uuid += "-";
+			uuid += (i == 12 ? 4 : (i == 16 ? (random & 3 | 8) : random)).toString(16);
+		}
+		return uuid;
+	}
+	else return window.crypto.randomUUID();
 };
 
 function getSetInstId (obj) {
